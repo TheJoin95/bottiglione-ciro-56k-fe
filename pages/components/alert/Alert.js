@@ -3,7 +3,7 @@ import { chakra, Box, Icon, Flex, useColorModeValue } from "@chakra-ui/react";
 
 import { IoMdCheckmarkCircle, IoMdAlert, BsLightningFill } from "react-icons/io";
 
-const AlertSuccess = () => {
+const Alert = () => {
   return (
     <Flex
       w="full"
@@ -48,4 +48,4 @@ const AlertSuccess = () => {
   );
 };
 
-export default AlertSuccess;
+export default Alert;
