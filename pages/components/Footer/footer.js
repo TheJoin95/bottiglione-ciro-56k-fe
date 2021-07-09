@@ -11,7 +11,7 @@ import {
 import { FaFacebook, FaGithub, FaHeart, FaTwitter } from 'react-icons/fa';
 import SocialButton from './SocialButton';
 
-const Footer = () => {
+export default function Footer () {
     const url = process.env.URL || 'https://www.ilbottiglionediciro.it';
     const sharerMessage = `Send a message to anyone with a delay in opening. Like the Bottiglione di Ciro in #generation56k #netflix ${url}`;
     return (
@@ -48,5 +48,3 @@ const Footer = () => {
         </Box>
     );
 }
-
-export default Footer;
