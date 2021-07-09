@@ -11,7 +11,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import HeadMeta from './components/HeadMeta/HeadMeta';
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer.js";
 import LottieAnimation from './components/LottieAnimation/LottieAnimation';
 import * as letterData from '../public/animations/letter.json';
 import MessageModal from './components/MessageModal/MessageModal';
