@@ -10,7 +10,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import HeadMeta from './components/HeadMeta/HeadMeta';
-import Footer from "./components/Footer/Footer.js";
+import Footer from './components/Footer/Footer';
 import LottieAnimation from './components/LottieAnimation/LottieAnimation';
 import * as letterData from '../public/animations/letter.json';
 import MessageModal from './components/MessageModal/MessageModal';
