@@ -19,6 +19,14 @@ export default function MessageModal(props) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [open, setOpen] = useState(props.isOpen);
 
+    const values = {
+        email: '',
+        msg: '',
+        date: '',
+        time: '',
+    };
+    const [inputValues, setInputValue] = useState(values);
+
     useEffect(() => {
         setOpen(props.isOpen);
     }, [props.isOpen]);
@@ -46,7 +54,7 @@ export default function MessageModal(props) {
                     <ModalBody>
                         <Stack direction={'column'}>
                             <strong>Email</strong>
-                            <Input variant="flushed" type='email' placeholder='La email del tuo destinatario' />
+                            <Input onChanmge={(evt) => setInputValue({...inputValues, { evt.target.name: evt.target.value }})} variant="flushed" type='email' placeholder='La email del tuo destinatario es. ciro@gmail.com' />
                             <strong>Messaggio</strong>
                             <Textarea variant="flushed" placeholder="Scrivi il tuo messaggio..." />
                             <strong>Data di recapito</strong>

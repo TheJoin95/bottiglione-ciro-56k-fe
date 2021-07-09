@@ -40,7 +40,7 @@ export default function Home() {
           </Heading>
           <Text color={'gray.500'} maxW={'3xl'}>
             Invia una lettera a un tuo caro
-            tramite il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Bottiglione di Ciro</strong> in <Link color={'blue.400'} target='_blank' to='https://www.netflix.com/title/81171140'>Generazione 56K</Link>
+            tramite il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Bottiglione di Ciro</strong> in <a color={'blue.400'} target='_blank' href='https://www.netflix.com/title/81171140'>Generazione 56K</a>
             <br/>
             <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Scrivi il messaggio</strong> e imposta il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>tempo di attesa</strong> per l&apos;effetivo invio e recapito al destinatario
           </Text>
