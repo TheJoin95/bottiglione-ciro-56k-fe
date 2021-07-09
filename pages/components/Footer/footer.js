@@ -3,7 +3,6 @@ import {
     chakra,
     Container,
     Image,
-    Link,
     Stack,
     Text,
     useColorModeValue,
@@ -54,18 +53,18 @@ export default function Footer() {
     const sharerMessage = `Send a message to anyone with a delay in opening. Like the Bottiglione di Ciro in #generation56k #netflix ${url}`;
     return (
         <Box
-            bg={useColorModeValue('gray.50', 'gray.900')}>
+            bg={useColorModeValue('blue.50', 'blue.900')}>
             <Container
                 as={Stack}
                 maxW={'6xl'}
                 py={4}
                 direction={{ base: 'column', md: 'row' }}
-                spacing={4}
+                spacing={3}
                 justify={{ base: 'center', md: 'space-between' }}
                 align={{ base: 'center', md: 'center' }}>
                 <Logo />
                 <Text>Made with <FaHeart style={{display: 'inline'}} color='var(--chakra-colors-red-400)' /> in Florence</Text>
-                <Stack direction={'row'} spacing={6}>
+                <Stack direction={'row'} spacing={3}>
                     <SocialButton label={'Share on TW'} href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(sharerMessage)}`}>
                         <FaTwitter />
                     </SocialButton>
