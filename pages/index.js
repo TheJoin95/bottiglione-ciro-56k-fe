@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Flex,
   Container,
@@ -6,13 +7,20 @@ import {
   Text,
   Button,
   Icon,
+  Link,
+  useDisclosure,
 } from '@chakra-ui/react';
 import HeadMeta from './components/HeadMeta/HeadMeta';
 import Footer from "./components/Footer/Footer";
 import LottieAnimation from './components/LottieAnimation/LottieAnimation';
 import * as letterData from '../public/animations/letter.json';
+import MessageModal from './components/MessageModal/MessageModal';
 
 export default function Home() {
+  const [messageModalOpen, setmessageModalOpen] = useState(false);
+  const handleClose = ()=>{
+    setmessageModalOpen(false)
+  }
   return (
     <>
       <HeadMeta />
@@ -21,7 +29,7 @@ export default function Home() {
           textAlign={'center'}
           align={'center'}
           spacing={{ base: 8, md: 10 }}
-          py={{ base: 15, md: 20 }}>
+          py={{ base: 20, md: 20 }}>
           <Heading
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
@@ -32,12 +40,16 @@ export default function Home() {
             </Text>
           </Heading>
           <Text color={'gray.500'} maxW={'3xl'}>
-            Never miss a meeting. Never be late for one too. Keep track of your
-            meetings and receive smart reminders in appropriate times. Read your
-            smart "Daily Agenda" every morning.
+            Invia una lettera a un tuo caro
+            tramite il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Bottiglione di Ciro</strong> in <Link color={'blue.400'} target='_blank' to='https://www.netflix.com/title/81171140'>Generazione 56K</Link>
+            <br/>
+            <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Scrivi il messaggio</strong> e imposta il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>tempo di attesa</strong> per l'effetivo invio e recapito al destinatario
           </Text>
           <Stack spacing={6} direction={'row'}>
             <Button
+              onClick={() => {
+                setmessageModalOpen(true);
+              }}
               rounded={'full'}
               px={6}
               colorScheme={'blue'}
@@ -59,6 +71,7 @@ export default function Home() {
             />*/}
           </Flex>
         </Stack>
+        <MessageModal isOpen={messageModalOpen} handleClose={handleClose} />
       </Container>
       <Footer />
     </>
