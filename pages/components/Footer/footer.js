@@ -9,9 +9,9 @@ import {
     useColorModeValue,
     VisuallyHidden,
 } from '@chakra-ui/react';
-import { FaFacebook, FaGithub, FaHeart, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaHeart, FaTwitter } from 'react-icons/fa';
 
-const Logo = (props) => {
+const Logo = () => {
     return (
         <Image 
             borderRadius="full"
