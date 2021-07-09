@@ -8,7 +8,6 @@ import {
   Button,
   Icon,
   Link,
-  useDisclosure,
 } from '@chakra-ui/react';
 import HeadMeta from './components/HeadMeta/HeadMeta';
 import Footer from "./components/Footer/Footer.js";

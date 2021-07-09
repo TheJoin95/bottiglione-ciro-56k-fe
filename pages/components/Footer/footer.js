@@ -48,7 +48,7 @@ const SocialButton = ({
     );
 };
 
-export default function Footer() {
+const Footer = () => {
     const url = process.env.URL || 'https://www.ilbottiglionediciro.it';
     const sharerMessage = `Send a message to anyone with a delay in opening. Like the Bottiglione di Ciro in #generation56k #netflix ${url}`;
     return (
@@ -79,3 +79,5 @@ export default function Footer() {
         </Box>
     );
 }
+
+export default Footer;
