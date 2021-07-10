@@ -3,11 +3,16 @@ import { chakra, Box, Icon, Flex, useColorModeValue } from "@chakra-ui/react";
 
 import { IoMdCheckmarkCircle, IoMdAlert, BsLightningFill } from "react-icons/io";
 
-const Alert = () => {
+const Alert = (props) => {
+  const icon = props.color === 'red' ? IoMdAlert : IoMdCheckmarkCircle;
   return (
     <Flex
-      w="full"
-      bg="gray.600"
+      position='absolute'
+      right='10px'
+      top='50px'
+      zIndex={999999}
+      w="auto"
+      bg='transparent'
       // bg={useColorModeValue("#F9FAFB", "gray.600")} // warning, yellow, error, red
       p={50}
       alignItems="center"
@@ -17,29 +22,29 @@ const Alert = () => {
         maxW="sm"
         w="full"
         mx="auto"
-        bg={useColorModeValue("white", "gray.800")}
+        bg={useColorModeValue("white", `${props.color}.800`)}
         shadow="md"
         rounded="lg"
         overflow="hidden"
       >
-        <Flex justifyContent="center" alignItems="center" w={12} bg="green.500">
+        <Flex justifyContent="center" alignItems="center" w={12} bg={`${props.color}.500`}>
         {/*<Flex justifyContent="center" alignItems="center" w={12} bg="yellow.500">*/}
-          <Icon as={IoMdCheckmarkCircle} color="white" boxSize={6} />
+          <Icon as={icon} color="white" boxSize={6} />
         </Flex>
 
         <Box mx={-3} py={2} px={4}>
           <Box mx={3}>
             <chakra.span
-              color={useColorModeValue("green.500", "green.400")}
+              color={useColorModeValue(`${props.color}.500`, `${props.color}.400`)}
               fontWeight="bold"
             >
-              Success
+              {props.title}
             </chakra.span>
             <chakra.p
-              color={useColorModeValue("gray.600", "gray.200")}
+              color={useColorModeValue(`${props.color}.600`, `${props.color}.200`)}
               fontSize="sm"
             >
-              Your account was registered!
+              {props.msg}
             </chakra.p>
           </Box>
         </Box>

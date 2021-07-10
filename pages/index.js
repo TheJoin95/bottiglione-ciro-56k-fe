@@ -11,19 +11,34 @@ import {
 } from '@chakra-ui/react';
 import HeadMeta from './components/HeadMeta/HeadMeta';
 import Footer from './components/Footer/Footer';
+import MessageModal from './components/MessageModal/MessageModal';
+import Alert from "./components/alert/Alert";
+
 import LottieAnimation from './components/LottieAnimation/LottieAnimation';
 import * as letterData from '../public/animations/letter.json';
-import MessageModal from './components/MessageModal/MessageModal';
+import * as bottleData from '../public/animations/bottle.json';
 
 export default function Home() {
   const [messageModalOpen, setmessageModalOpen] = useState(false);
-  const handleClose = ()=>{
+  const [alertOpen, setalertOpen] = useState({
+    isOpen: false,
+    color: 'green',
+    title: '',
+    msg: ''
+  });
+  const handleClose = () => {
     setmessageModalOpen(false)
   }
+
   return (
     <>
       <HeadMeta />
       <Container maxW={'5xl'}>
+        {alertOpen.isOpen && (<Alert
+          color={alertOpen.color}
+          title={alertOpen.title}
+          msg={alertOpen.msg}
+        />)}
         <Stack
           textAlign={'center'}
           align={'center'}
@@ -40,7 +55,7 @@ export default function Home() {
           </Heading>
           <Text color={'gray.500'} maxW={'3xl'}>
             Invia una lettera a un tuo caro
-            tramite il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Bottiglione di Ciro</strong> in <a color={'blue.400'} target='_blank' href='https://www.netflix.com/title/81171140'>Generazione 56K</a>
+            tramite il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Bottiglione di Ciro</strong> in <a color={'blue.400'} target='_blank' href='https://www.netflix.com/title/81171140' rel="noreferrer">Generazione 56K</a>
             <br/>
             <strong style={{color: 'var(--chakra-colors-blue-400)'}}>Scrivi il messaggio</strong> e imposta il <strong style={{color: 'var(--chakra-colors-blue-400)'}}>tempo di attesa</strong> per l&apos;effetivo invio e recapito al destinatario
           </Text>
@@ -58,19 +73,24 @@ export default function Home() {
             </Button>
           </Stack>
           <Flex w={'full'} flexDirection='column' align='center'>
-            <LottieAnimation
+            {alertOpen.color === 'green' && alertOpen.isOpen ? (<LottieAnimation
+              mt={{ base: 12, sm: 16 }}
+              animationData={bottleData}
+              height='28rem'
+              width='28rem'
+            />) : (<LottieAnimation
               mt={{ base: 12, sm: 16 }}
               animationData={letterData}
               height='28rem'
               width='28rem'
-            />
+            />)}
             {/*<Illustration
               height={{ sm: '24rem', lg: '28rem' }}
               mt={{ base: 12, sm: 16 }}
             />*/}
           </Flex>
         </Stack>
-        <MessageModal isOpen={messageModalOpen} handleClose={handleClose} />
+        <MessageModal handleAlert={setalertOpen} isOpen={messageModalOpen} handleClose={handleClose} />
       </Container>
       <Footer />
     </>
