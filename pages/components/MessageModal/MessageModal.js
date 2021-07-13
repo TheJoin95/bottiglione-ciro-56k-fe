@@ -117,7 +117,7 @@ export default function MessageModal(props) {
                         </Stack>
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme="blue" variant="gray">Annulla</Button>
+                        <Button colorScheme="blue" variant="gray" onClick={props.handleClose}>Annulla</Button>
                         <Button colorScheme="blue" mr={3} onClick={scheduleEmail}>
                             Invia
                         </Button>
